@@ -1,41 +1,31 @@
-import css from "./Options.module.scss";
-import { FaRegSmile } from "react-icons/fa";
-import { FaRegFrown } from "react-icons/fa";
-import { FaRegMeh } from "react-icons/fa";
-import { BiReset } from "react-icons/bi";
+/* eslint-disable react/prop-types */
+import css from "./Options.module.css";
 
 // eslint-disable-next-line react/prop-types
-const Options = ({ update, totalFeedback }) => {
+function Options({ options, updateFeedback, resetFeedback, isFeedback }) {
   return (
-    <ul className={css.div}>
-      <li>
-        <button className={css.btn} onClick={() => update("good")}>
-          <FaRegSmile />
-          Good
-        </button>
-      </li>
-      <li>
-        <button className={css.btn} onClick={() => update("neutral")}>
-          <FaRegMeh />
-          Neutral
-        </button>
-      </li>
-      <li>
-        <button className={css.btn} onClick={() => update("bad")}>
-          <FaRegFrown />
-          Bad
-        </button>
-      </li>
-      {totalFeedback > 0 && (
+    <ul className={css.options}>
+      {options.map((option, id) => {
+        return (
+          <li key={id}>
+            <button
+              type="button"
+              onClick={(e) => updateFeedback(e.target.innerHTML)}
+            >
+              {option}
+            </button>
+          </li>
+        );
+      })}
+      {isFeedback && (
         <li>
-          <button onClick={() => update("reset")} className={css.btn}>
-            <BiReset />
+          <button type="button" onClick={resetFeedback}>
             Reset
           </button>
         </li>
       )}
     </ul>
   );
-};
+}
 
 export default Options;

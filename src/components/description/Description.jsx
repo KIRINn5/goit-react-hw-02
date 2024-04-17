@@ -1,8 +1,8 @@
-import css from "./Description.module.scss";
+import css from "./Description.module.css";
 
-const Description = () => {
+function Description() {
   return (
-    <div className={css.title}>
+    <div className={css.description}>
       <h1>Sip Happens Café</h1>
       <p>
         Please leave your feedback about our service by selecting one of the
@@ -10,6 +10,6 @@ const Description = () => {
       </p>
     </div>
   );
-};
+}
 
 export default Description;

@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
-import css from "./Feedback.module.scss";
+import css from "./Feedback.module.css";
 
 // eslint-disable-next-line react/prop-types
-const Feedback = ({ stats, totalFeedback, positivePerc }) => {
+function Feedback({ feedback, totalFeedback, positivePercent }) {
   return (
-    <div className={css.stats}>
-      <p className={css.item}>Good: {stats.good}</p>
-      <p className={css.item}>Neutral: {stats.neutral}</p>
-      <p className={css.item}>Bad: {stats.bad}</p>
-      <p className={css.item}>Total: {totalFeedback}</p>
-      <p className={css.item}>Positive: {positivePerc}%</p>
-    </div>
+    <ul className={css.feedback}>
+      <li>Good: {feedback.good}</li>
+      <li>Neutral: {feedback.neutral}</li>
+      <li>Bad: {feedback.bad}</li>
+      <li>Total: {totalFeedback}</li>
+      <li>Positive: {positivePercent}%</li>
+    </ul>
   );
-};
+}
 
 export default Feedback;
